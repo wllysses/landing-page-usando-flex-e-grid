@@ -1,0 +1,114 @@
+.cabecalho nav ul {
+    display: flex;
+}
+
+.cabecalho nav ul li a {
+    font-size: 2rem;
+    font-weight: 500;
+    padding: 10px 30px;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.cabecalho nav ul li a:hover {
+    background-color: coral;
+    color: white;
+}
+
+/* RESPONSIVE */
+
+.cabecalho .menu {
+    display: none;
+    width: 60px;
+    height: 60px;
+    align-self: flex-end;
+}
+
+.cabecalho nav label {
+    display: flex;
+    flex-direction: column;
+}
+
+.cabecalho .burguer {
+    background-color: black;
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 2px;
+    top: 29px;
+    left: 15px;
+    transition: 0.5s ease-in-out;
+}
+
+.cabecalho .burguer::before, 
+.cabecalho .burguer::after {
+    background-color: black;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: 0.2s ease-in-out;
+}
+
+.cabecalho .burguer::before {
+    top: -10px;
+}
+
+.cabecalho .burguer::after {
+    bottom: -10px;
+}
+
+/* ANIMATION MENU BURGUER */
+.cabecalho input {
+    display: none;
+}
+
+.cabecalho input:checked ~ label .burguer {
+    transform: rotate(45deg);
+}
+
+.cabecalho input:checked ~ label .burguer::before {
+    transform: rotate(90deg);
+    top: 0;
+}
+
+.cabecalho input:checked ~ label .burguer::after {
+    transform: rotate(90deg);
+    bottom: 0;
+}
+
+@media (max-width: 900px) {
+    .cabecalho .menu {
+        display: block;
+    }
+
+    .cabecalho nav ul {
+        display: none;
+    }
+
+    .cabecalho input:checked ~ ul {
+        display: block;
+    }
+
+    .cabecalho nav {
+        position: absolute;
+        top: 8px;
+        right: 20px;
+        
+        /* basicamente coloca o elemento em cima de qualquer outro */
+        z-index: 1; 
+    }
+
+    .cabecalho nav ul {
+        width: 200px;
+        background-color: white;
+        padding: 20px;
+    }
+
+    .cabecalho nav ul li a {
+        display: block;
+        text-align: center;
+        padding: 20px;
+    }
+}
